@@ -1,0 +1,61 @@
+aid: foxtons
+url: https://raw.githubusercontent.com/api-evangelist/foxtons/refs/heads/main/apis.yml
+name: Foxtons
+kind: company
+description: >-
+  Foxtons Group plc is a London-focused UK estate agency, founded in 1981
+  and listed on the London Stock Exchange, running residential sales, lettings and
+  property management from roughly 40 branches across London and Surrey, plus
+  independent mortgage broking through its Alexander Hall subsidiary. It sits on the
+  brokerage rung of the value chain — it originates and holds the client and the
+  listing rather than operating a portal or a data exchange — and distributes its
+  stock to Rightmove and Zoopla through the UK's portal feed arrangements rather than
+  through any shared cooperative, because the UK has no MLS. Its technology is
+  deliberately proprietary: an internally built CRM/ERP called BOS underpins the whole
+  business, and the My Foxtons customer portal is the consumer face of that same
+  system. API posture, stated honestly, is none-published — no developer or partner
+  portal, no api./developer./docs. host resolves, no OpenAPI or OData contract is
+  served, and the only machine-readable public surface is schema.org JSON-LD embedded
+  in its web pages. RESO is absent, as expected outside North America. The genuinely
+  open UK property data layer belongs to government (HM Land Registry, Ordnance
+  Survey), not to Foxtons.
+image: https://page-assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png
+tags:
+- Real Estate
+- United Kingdom
+- Property Listings
+- Rentals
+- Lettings
+- Property Management
+- Estate Agency
+- Mortgage
+- PropTech
+- London
+created: '2026-07-26'
+modified: '2026-07-26'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.foxtons.co.uk/
+- type: Website
+  url: https://www.foxtonsgroup.co.uk/
+- type: About
+  url: https://www.foxtons.co.uk/foxtons/about
+- type: Technology
+  url: https://www.foxtonsgroup.co.uk/about-us/our-technology
+- type: CustomerPortal
+  url: https://www.foxtons.co.uk/myfoxtons
+- type: Reports
+  url: https://www.foxtons.co.uk/reports
+- type: LinkedIn
+  url: https://www.linkedin.com/company/foxtons
+- type: Twitter
+  url: https://x.com/foxtons
+- type: Facebook
+  url: https://www.facebook.com/FoxtonsEstateAgent/
+- type: Instagram
+  url: https://www.instagram.com/foxtonsestateagents/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

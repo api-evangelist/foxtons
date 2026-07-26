@@ -1,0 +1,289 @@
+aid: foxtons
+name: Foxtons
+review:
+  question: Does Foxtons publish a public, machine-readable API surface — and what is
+    its RESO posture and access gate?
+  answer: false
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: brokerage
+  specsHarvested: 0
+  openapiDirectoryCreated: false
+
+sectorPosture:
+  resoPosture:
+    summary: No RESO reference found — Foxtons is a UK estate agency and RESO has no
+      presence in its market.
+    certified: false
+    webApiCertification: none
+    dataDictionaryCertification: none
+    dataDictionaryVersion: null
+    resoDirectoryEvidence: |
+      No Foxtons entry was found in any RESO certification context. RESO certification
+      is granted to MLS organisations and their vendors, overwhelmingly in the United
+      States and Canada; the United Kingdom has no MLS for RESO to certify. Searches
+      for RESO Web API / Data Dictionary certification tied to Foxtons or to UK estate
+      agents returned only US/Canadian MLS material (reso.org, RESOStandards on GitHub,
+      US state association certification pages). Nothing connects Foxtons to RESO.
+    odataEndpointProbed: true
+    odataEndpointResult: |
+      https://www.foxtons.co.uk/$metadata returned HTTP 404. No OData service document,
+      no $metadata document, no /Reso or /odata path is served. There is no OData
+      surface to certify or to call.
+    upi: |
+      No RESO Universal Property Identifier (UPI) usage found. Foxtons identifies
+      properties with its own internal web-path/reference scheme. The UK equivalents of
+      a canonical property identifier are the Ordnance Survey UPRN and HM Land Registry
+      title numbers, both government-issued — neither is exposed by Foxtons.
+    marketContext: |
+      The UK has no MLS and therefore no mandated machine-readable listing contract.
+      Residential listings reach consumers through two portals — Rightmove and Zoopla —
+      fed from agency CRM software over the de-facto Rightmove V3 BLM XML feed, a
+      bilateral commercial arrangement rather than a cooperative standard. RESO's
+      mandate (NAR, an industry body, in the US) has no counterpart here.
+
+  accessGate:
+    classification: none-published
+    whatADeveloperMustSignOrJoin: |
+      There is nothing to sign and nothing to join, because there is no offer. Foxtons
+      publishes no developer programme, no partner API programme, no API terms, no key
+      request form, and no application process. The only registration Foxtons offers the
+      public is a consumer My Foxtons account (buyer, seller, landlord, tenant) which
+      grants a person a web/mobile portal session — not programmatic access, not an API
+      key, and not documented as an integration surface. A third party wanting Foxtons
+      listing data in practice consumes it downstream from Rightmove or Zoopla under
+      those portals' own commercial terms, not from Foxtons.
+    gated: true
+    gateNote: |
+      "Gated" here means closed rather than credentialed: the barrier is the absence of
+      a published surface, not a licence or membership screen in front of one. This is
+      the distinct failure mode this study should record — not "certified but not
+      reachable", but "nothing published at all".
+
+  openData:
+    hasOpenData: false
+    note: |
+      Foxtons publishes no open, unlicensed, publicly callable dataset. Its market
+      research output — the monthly London Lettings Market Reports at
+      https://www.foxtons.co.uk/reports (HTTP 200) — is delivered as PDF downloads from
+      cms-assets.foxtons.co.uk plus HTML summary pages. No CSV, no JSON, no feed, no
+      bulk download, no API.
+    ukOpenDataCounterweight: |
+      The genuinely open UK property data layer is public-sector and sits entirely
+      outside Foxtons: HM Land Registry Price Paid Data and its ownership datasets under
+      the Open Government Licence, and Ordnance Survey open addressing/mapping products
+      (UPRN via OS Open UPRN, OS OpenData). This is the inverse of the US pattern — the
+      UK has real open government APIs and a closed private duopoly, where the US has a
+      mandated private standard (RESO) and no open government layer. Foxtons is a
+      consumer of that public layer, not a publisher of it.
+
+  authModel:
+    scheme: none-published
+    detail: |
+      No API authentication scheme is documented because no API is documented. The only
+      authentication surface is the consumer My Foxtons account at
+      https://www.foxtons.co.uk/account/login (HTTP 200), a JavaScript-rendered sign-in
+      shell with no server-rendered form and no visible OAuth/OIDC/SAML handoff in the
+      delivered HTML. No OpenID Connect discovery document is served:
+      https://www.foxtons.co.uk/.well-known/openid-configuration returned HTTP 404. No
+      API key issuance, no OAuth client registration, no scopes.
+
+  webhooksEventsSdksPostman:
+    webhooks: none found
+    events: none found
+    sdks: none found
+    cli: none found
+    postman: none found
+    note: |
+      Absence is the finding. There is no Foxtons GitHub organisation
+      (https://api.github.com/orgs/foxtons returned HTTP 404; the account at
+      https://github.com/foxtons is an unrelated individual GitHub *user* with one
+      forked Perl repository and no connection to the company). No published SDK, CLI,
+      Postman workspace, webhook catalogue, or event stream exists.
+
+  productApiFamily:
+    note: |
+      Foxtons' real product segmentation, represented faithfully from its own site, is
+      residential sales, lettings (long let and short let), property management,
+      build-to-rent / private-rented-sector services for developers and institutional
+      landlords, and mortgage broking via Alexander Hall. None of these segments is
+      exposed as an API. Every one of them is delivered through BOS, the internally
+      built and internally managed CRM/ERP that Foxtons Group describes as "an
+      end-to-end, fully integrated and internally-developed CRM and workflow system
+      powering all aspects of the Foxtons business", with My Foxtons (stated at over
+      700,000 users) as its consumer face. The commercial posture is explicitly
+      proprietary-integrated, not platform-extensible.
+
+findings:
+  summary: |
+    Foxtons has no public API. Every conventional developer entry point was probed and
+    none exists: developer., developers., api. and docs. subdomains of foxtons.co.uk all
+    fail DNS resolution outright (NXDOMAIN), and /developers, /api, /docs, /api-docs,
+    /openapi.json, /swagger.json and /$metadata on www.foxtons.co.uk all return HTTP
+    404. There is no OpenAPI document, no OData $metadata document, no AsyncAPI, no
+    GraphQL endpoint, no Postman collection, no SDK, and no company GitHub organisation.
+    Nothing was harvested into openapi/ because nothing real exists to harvest, so the
+    directory was not created.
+
+    Two things are worth recording precisely. First, a phantom host: web search results
+    repeatedly surface URLs on https://api.foxtons.co.uk/ (for example
+    /foxtons/, /newhomes/, /living-in, /estate-agents/ha4.html) whose titles mirror
+    ordinary www.foxtons.co.uk marketing pages. That hostname does not exist. It returns
+    NXDOMAIN from two independent public resolvers (1.1.1.1 and 8.8.8.8) and curl cannot
+    resolve it. These are stale or rewritten search-index artifacts, and they are NOT
+    evidence of a Foxtons API. Recording them as a developer surface would have been a
+    fabrication; they are recorded here as a negative.
+
+    Second, an internal surface disclosed but not offered: robots.txt at
+    https://www.foxtons.co.uk/robots.txt (HTTP 200) explicitly disallows /api/ and
+    /json/. That tells us the website is backed by internal JSON endpoints, as any modern
+    site is. Both path roots return HTTP 404 when requested, and neither is documented,
+    versioned, contracted, or offered to anyone. An undocumented, robots-excluded
+    internal AJAX path is not a public API and is not listed as one.
+
+    The one genuinely machine-readable public artifact Foxtons serves is schema.org
+    JSON-LD embedded in its pages — the homepage carries a valid
+    Organization object (name, url, logo, postal address at Building 12, Chiswick Park,
+    566 Chiswick High Road, London W4 5AN, sameAs social profiles). That is structured
+    data for search engines, not an interface, and it is noted as such rather than
+    promoted to an API.
+
+    RESO posture and access gate are separate facts here and both resolve to absence
+    rather than to closure: there is no RESO certification to be reachable-or-not, and
+    there is no gate in front of a surface — there is no surface. For a UK brokerage this
+    is the expected result, and it is exactly the inverse of the US pattern this study is
+    testing: the UK's open property data is government-published (HM Land Registry,
+    Ordnance Survey), while the private listing market moves over closed bilateral portal
+    feeds that no developer can sign up for.
+
+probes:
+  - url: https://www.foxtons.co.uk/
+    status: 200
+    note: Live corporate/consumer site. schema.org Organization JSON-LD present and parsed.
+  - url: https://foxtons.co.uk/
+    status: 200
+    note: Redirects to https://www.foxtons.co.uk/.
+  - url: https://developer.foxtons.co.uk/
+    status: 000
+    note: DNS resolution failure — host does not exist.
+  - url: https://developers.foxtons.co.uk/
+    status: 000
+    note: DNS resolution failure — host does not exist.
+  - url: https://api.foxtons.co.uk/
+    status: 000
+    note: NXDOMAIN confirmed at resolvers 1.1.1.1 and 8.8.8.8. Search results citing this
+      host are index artifacts; the host is not real.
+  - url: https://docs.foxtons.co.uk/
+    status: 000
+    note: DNS resolution failure — host does not exist.
+  - url: https://www.foxtons.co.uk/developers
+    status: 404
+  - url: https://www.foxtons.co.uk/api
+    status: 404
+  - url: https://www.foxtons.co.uk/api/
+    status: 404
+    note: Path is disallowed in robots.txt, indicating an internal JSON surface; root
+      returns 404 and nothing is documented.
+  - url: https://www.foxtons.co.uk/json/
+    status: 404
+    note: Also disallowed in robots.txt. Undocumented internal surface, not a public API.
+  - url: https://www.foxtons.co.uk/docs
+    status: 404
+  - url: https://www.foxtons.co.uk/api-docs
+    status: 404
+  - url: https://www.foxtons.co.uk/openapi.json
+    status: 404
+  - url: https://www.foxtons.co.uk/swagger.json
+    status: 404
+  - url: https://www.foxtons.co.uk/$metadata
+    status: 404
+    note: No OData/RESO metadata document served.
+  - url: https://www.foxtons.co.uk/.well-known/openid-configuration
+    status: 404
+    note: No OpenID Connect discovery document served anonymously.
+  - url: https://www.foxtons.co.uk/.well-known/security.txt
+    status: 404
+  - url: https://www.foxtons.co.uk/security.txt
+    status: 404
+  - url: https://www.foxtons.co.uk/llms.txt
+    status: 404
+  - url: https://www.foxtons.co.uk/robots.txt
+    status: 200
+    note: Disallows /account/, /json/, /api/, /pre_qualification and listing facet
+      parameters. Declares sitemap https://www.foxtons.co.uk/sitemap-index.xml.
+  - url: https://www.foxtons.co.uk/sitemap.xml
+    status: 404
+    note: Sitemap lives at /sitemap-index.xml per robots.txt, not at /sitemap.xml.
+  - url: https://www.foxtons.co.uk/account
+    status: 200
+    note: Consumer My Foxtons account area. Not a developer surface.
+  - url: https://www.foxtons.co.uk/account/login
+    status: 200
+    note: JavaScript-rendered sign-in shell; no server-rendered form, no OAuth/OIDC/SAML
+      markers in delivered HTML.
+  - url: https://www.foxtons.co.uk/myfoxtons
+    status: 200
+    note: My Foxtons marketing page — consumer portal for landlords, tenants, buyers,
+      sellers. No API, integration, or developer language.
+  - url: https://www.foxtons.co.uk/foxtons/about
+    status: 200
+  - url: https://www.foxtons.co.uk/reports
+    status: 200
+    note: London Lettings Market Reports, PDF plus HTML summaries. No CSV/JSON/feed/API.
+  - url: https://www.foxtons.co.uk/careers
+    status: 200
+  - url: https://www.foxtonsgroup.co.uk/
+    status: 200
+    note: Corporate/investor site for Foxtons Group plc.
+  - url: https://www.foxtonsgroup.co.uk/about-us/our-technology
+    status: 200
+    note: Describes BOS (internally developed CRM/ERP), the Foxtons Data Platform, and My
+      Foxtons. No mention of APIs, developer access, or partner data feeds.
+  - url: https://www.foxtonsgroup.co.uk/robots.txt
+    status: 200
+  - url: https://api.github.com/orgs/foxtons
+    status: 404
+    note: No Foxtons GitHub organisation exists.
+  - url: https://github.com/foxtons
+    status: 200
+    note: Unrelated individual GitHub user account (1 public repo, a fork of a Perl git
+      viewer). Not the company. Deliberately excluded from apis.yml.
+  - url: https://www.linkedin.com/company/foxtons
+    status: 200
+  - url: https://page-assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png
+    status: 200
+    note: Brand logo confirmed live; used as the apis.yml image.
+
+sources:
+  - url: https://www.foxtonsgroup.co.uk/about-us/our-technology
+    type: Documentation
+    note: Source for BOS as "an end-to-end, fully integrated and internally-developed CRM
+      and workflow system powering all aspects of the Foxtons business", the Foxtons Data
+      Platform, and My Foxtons at over 700,000 users.
+  - url: https://www.foxtons.co.uk/foxtons/about
+    type: About
+    note: Company identity — London and Surrey estate agency, sales and lettings.
+  - url: https://www.foxtons.co.uk/myfoxtons
+    type: Documentation
+    note: My Foxtons is a consumer portal for landlords, tenants, buyers and sellers; no
+      API or developer tooling referenced.
+  - url: https://www.foxtons.co.uk/robots.txt
+    type: robots.txt
+    note: Discloses internal /api/ and /json/ paths as crawl-excluded.
+  - url: https://www.foxtons.co.uk/reports
+    type: Reports
+    note: Monthly London Lettings Market Reports as PDF; no machine-readable release.
+  - url: https://en.wikipedia.org/wiki/Foxtons
+    type: Reference
+    note: Founded 1981 by Jon Hunt in Notting Hill; LSE-listed; sales and lettings.
+
+actions:
+  apisYmlCreated: true
+  apisListed: 0
+  apisListedReason: |
+    apis[] is empty and that is the correct, honest result. Foxtons documents no public
+    API, so there is nothing real to list. No endpoint, host, spec, or scope was invented.
+  openapiHarvested: false
+  specsCount: 0
+  readmeCreated: true
