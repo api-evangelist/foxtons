@@ -1,0 +1,61 @@
+generated: '2026-07-26'
+method: searched
+source: npm registry search, PyPI, RubyGems, Packagist (all probed 2026-07-26)
+note: >-
+  Foxtons publishes no API client library, because it publishes no API. One package does
+  exist under a Foxtons-controlled npm scope and is recorded honestly below: it is an
+  internal front-end utility fork, not an SDK. No `SDKs` pointer is wired into apis.yml —
+  the SDK checks are about client libraries for a provider's API and awarding them here
+  would misrepresent the surface.
+packages:
+- language: javascript
+  registry: npm
+  name: '@foxtons/react-mui-dropzone'
+  url: https://www.npmjs.com/package/@foxtons/react-mui-dropzone
+  install: npm install @foxtons/react-mui-dropzone
+  version: 4.0.8
+  published: '2024-10-28'
+  license: MIT
+  repository: https://github.com/foxtons-joshua/material-ui-dropzone
+  official: true
+  official_evidence: >-
+    Published under the @foxtons npm scope by maintainer foxtons-joshua with the corporate
+    address joshua.swanson@foxtons.co.uk.
+  api_client: false
+  kind: ui-component
+  description: >-
+    A Material-UI v5 / React 18 file-upload dropzone — a maintained fork of the community
+    material-ui-dropzone component, republished so Foxtons' own web front end can consume
+    it. Unrelated to any Foxtons data interface.
+registries_probed:
+- registry: npm
+  query: foxtons
+  result: 1 package (the @foxtons scope entry above)
+- registry: pypi
+  query: foxtons
+  result: 404 — no project
+- registry: rubygems
+  query: foxtons
+  result: empty
+- registry: packagist
+  query: foxtons
+  result: 0 results
+- registry: maven-central
+  query: foxtons
+  result: none found
+- registry: nuget
+  query: foxtons
+  result: none found
+- registry: crates.io
+  query: foxtons
+  result: none found
+- registry: pkg.go.dev
+  query: foxtons
+  result: none found
+github:
+  organization: none
+  note: >-
+    https://api.github.com/orgs/foxtons returns 404 — there is no Foxtons GitHub
+    organisation. github.com/foxtons is an unrelated individual. The only company-linked
+    account found is the personal account github.com/foxtons-joshua behind the npm package
+    above, which is an employee account and is not wired as a GitHubOrganization.

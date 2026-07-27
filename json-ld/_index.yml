@@ -1,0 +1,67 @@
+generated: '2026-07-26'
+method: searched
+source: >-
+  schema.org JSON-LD embedded in live www.foxtons.co.uk pages, harvested verbatim
+  2026-07-26. Foxtons publishes no OpenAPI, OData or GraphQL contract; this embedded
+  structured data is the only machine-readable public surface the company serves.
+note: >-
+  Every *.jsonld file below except foxtons-context.jsonld is a verbatim copy of the
+  application/ld+json block delivered by the named page. The context file is an API
+  Evangelist derivation that binds the terms Foxtons actually emits to schema.org and
+  GoodRelations IRIs; Foxtons publishes no @context document of its own (it inlines
+  "@context": "https://schema.org").
+documents:
+- file: foxtons-organization.jsonld
+  method: searched
+  source: https://www.foxtons.co.uk/
+  status: 200
+  types: [Organization]
+  note: >-
+    Corporate identity object — legalName Foxtons Limited, founded 1981, 350 employees,
+    Chiswick Park HQ, areaServed "London and home counties", aggregateRating 4.50 over
+    8,756 reviews, and three makesOffer Service entries (Free Property Valuation,
+    Property Sales, Property Lettings).
+- file: foxtons-property-for-sale.jsonld
+  method: searched
+  source: https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965
+  status: 200
+  types: [House, Product, Offer, PriceSpecification, PostalAddress, GeoCoordinates, QuantitativeValue]
+  note: >-
+    Sales listing shape. businessFunction is the GoodRelations IRI
+    http://purl.org/goodrelations/v1#Sell; the seller is a RealEstateAgent named for the
+    branch (Bromley) rather than a per-branch URL.
+- file: foxtons-property-to-rent.jsonld
+  method: searched
+  source: https://www.foxtons.co.uk/properties-to-rent/br1/chpk3901313
+  status: 200
+  types: [House, Product, Offer, PriceSpecification, PostalAddress, GeoCoordinates, QuantitativeValue]
+  note: >-
+    Lettings listing shape — identical to the sales shape except businessFunction is
+    http://purl.org/goodrelations/v1#LeaseOut and price is the monthly rent in GBP.
+    Sale and let are one model distinguished only by business function.
+- file: foxtons-site-graph.jsonld
+  method: searched
+  source: https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965
+  status: 200
+  types: [WebSite, RealEstateAgent, LocalBusiness, WebPage, BreadcrumbList, ListItem]
+  note: >-
+    Second ld+json block on every listing page — the site-level @graph carrying WebSite,
+    the RealEstateAgent/LocalBusiness identity, and the page breadcrumb trail.
+- file: foxtons-context.jsonld
+  method: derived
+  source: the four harvested documents above
+  note: >-
+    API Evangelist derived JSON-LD context. 16 classes and 41 properties, every one of
+    them observed in Foxtons' own published markup. No term was invented.
+observed:
+  identifier_scheme: >-
+    Listings are identified by an internal reference of the form chpk<digits> embedded in
+    the URL path alongside the outward postcode (e.g. /properties-for-sale/br1/chpk3886965).
+    There is no RESO UPI, no Ordnance Survey UPRN, and no HM Land Registry title number in
+    the published data.
+  coverage_note: >-
+    The listing corpus is enumerable through the gzipped sitemaps referenced by
+    https://www.foxtons.co.uk/sitemap-index.xml (sales, long-lettings, short-lettings,
+    offices, blogs, interiors, local-life). Crawling structured data off those pages is
+    not an API and Foxtons offers no terms for doing so; the sitemaps are recorded here as
+    the shape of the public surface, not as an access grant.

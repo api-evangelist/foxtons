@@ -1,0 +1,66 @@
+generated: '2026-07-26'
+method: searched
+source: live HTTP probes 2026-07-26
+result: none
+note: >-
+  Recorded as a negative. Every /.well-known/ discovery document was probed on both
+  Foxtons hosts and none is served. No raw files were saved because there is nothing to
+  save, and no WellKnown / SecurityTxt pointer is wired into apis.yml — an artifact that
+  documents absence must not fire a discovery check.
+hosts:
+- host: https://www.foxtons.co.uk
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.foxtonsgroup.co.uk
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+non_resolving_hosts:
+- host: api.foxtons.co.uk
+  status: 000
+  note: NXDOMAIN at 1.1.1.1. Search results citing this host are stale index artifacts.
+- host: developer.foxtons.co.uk
+  status: 000
+- host: docs.foxtons.co.uk
+  status: 000
+- host: partners.foxtons.co.uk
+  status: 000
+- host: feeds.foxtons.co.uk
+  status: 000
+- host: mcp.foxtons.co.uk
+  status: 000
+served_discovery_documents:
+- path: /robots.txt
+  host: https://www.foxtons.co.uk
+  status: 200
+  note: >-
+    Disallows /account/, /json/, /api/ and /pre_qualification plus listing facet
+    parameters. The /api/ and /json/ exclusions disclose internal AJAX endpoints; both
+    return 404 at their roots and neither is documented, versioned or offered.
+- path: /sitemap-index.xml
+  host: https://www.foxtons.co.uk
+  status: 200
+  note: >-
+    The only machine-readable index Foxtons serves — gzipped sitemaps for sales,
+    long-lettings, short-lettings, offices, blogs, interiors and local-life.

@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965",
+  "url": "https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965",
+  "@type": [
+    "House",
+    "Product"
+  ],
+  "name": "House semi detached for Sale in BR1 2NF",
+  "logo": "https://assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+  "image": "https://web-prod-page-assets.foxtons.co.uk/protog/1779432782/56/96/883/chpk3886965/edited_chpk3886965-1.jpg",
+  "description": "Situated in Bickley, this 3 bedroom semi-detached house offers an excellent family living space; boasting large front and rear gardens with off-street parking.",
+  "numberOfBedrooms": 3,
+  "numberOfBathroomsTotal": 1,
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": 1144,
+    "unitCode": "MTK"
+  },
+  "offers": {
+    "@type": "Offer",
+    "businessFunction": "http://purl.org/goodrelations/v1#Sell",
+    "seller": {
+      "@type": "RealEstateAgent",
+      "name": "Bromley",
+      "url": "https://www.foxtons.co.uk"
+    },
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": 695000,
+      "priceCurrency": "GBP"
+    },
+    "url": "https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965",
+    "availability": "https://schema.org/InStock"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bickley Road",
+    "addressLocality": "Bickley",
+    "postalCode": "BR1",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.404647,
+    "longitude": 0.036662
+  }
+}

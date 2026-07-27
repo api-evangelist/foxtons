@@ -1,0 +1,233 @@
+generated: '2026-07-26'
+method: derived
+source: json-ld/foxtons-organization.jsonld, json-ld/foxtons-property-for-sale.jsonld, json-ld/foxtons-property-to-rent.jsonld, json-ld/foxtons-site-graph.jsonld
+context: json-ld/foxtons-context.jsonld
+note: >-
+  Foxtons publishes no vocabulary of its own. This is the controlled vocabulary API
+  Evangelist derived from the schema.org JSON-LD Foxtons actually emits on its live
+  pages — every class and property below was observed in harvested markup, none was
+  invented. Where a term is a Foxtons convention rather than a schema.org term it is
+  marked local.
+namespaces:
+- prefix: schema
+  uri: https://schema.org/
+- prefix: gr
+  uri: http://purl.org/goodrelations/v1#
+classes:
+- term: Organization
+  uri: https://schema.org/Organization
+  usage: Corporate identity on the homepage (legalName "Foxtons Limited").
+- term: RealEstateAgent
+  uri: https://schema.org/RealEstateAgent
+  usage: The selling/letting agent on every listing, and the site-level business identity.
+- term: LocalBusiness
+  uri: https://schema.org/LocalBusiness
+  usage: Co-typed with RealEstateAgent in the site @graph.
+- term: House
+  uri: https://schema.org/House
+  usage: The property being sold or let. Co-typed with Product.
+- term: Product
+  uri: https://schema.org/Product
+  usage: Co-typing that lets a listing carry offers and be treated commercially.
+- term: Offer
+  uri: https://schema.org/Offer
+  usage: The commercial offer attached to a listing, and the services on the homepage.
+- term: PriceSpecification
+  uri: https://schema.org/PriceSpecification
+  usage: Asking price (sale) or monthly rent (let), always GBP.
+- term: PostalAddress
+  uri: https://schema.org/PostalAddress
+  usage: Property address and the Chiswick Park head office.
+- term: GeoCoordinates
+  uri: https://schema.org/GeoCoordinates
+  usage: Latitude/longitude on every listing.
+- term: QuantitativeValue
+  uri: https://schema.org/QuantitativeValue
+  usage: floorSize, expressed with unitCode MTK.
+- term: AggregateRating
+  uri: https://schema.org/AggregateRating
+  usage: Company-level review score on the homepage.
+- term: Service
+  uri: https://schema.org/Service
+  usage: The three offered services — valuation, sales, lettings.
+- term: WebSite
+  uri: https://schema.org/WebSite
+  usage: Site identity in the page @graph.
+- term: WebPage
+  uri: https://schema.org/WebPage
+  usage: Page identity and breadcrumb anchors.
+- term: BreadcrumbList
+  uri: https://schema.org/BreadcrumbList
+  usage: Four-level trail — site, listing type, postcode, property.
+- term: ListItem
+  uri: https://schema.org/ListItem
+  usage: Breadcrumb entries.
+properties:
+- term: name
+  uri: https://schema.org/name
+  domain: [Organization, House, Offer, Service, WebPage]
+- term: legalName
+  uri: https://schema.org/legalName
+  domain: [Organization]
+  value_observed: Foxtons Limited
+- term: alternateName
+  uri: https://schema.org/alternateName
+  domain: [Organization, WebSite]
+  value_observed: Foxtons Estate Agent
+- term: url
+  uri: https://schema.org/url
+  domain: [Organization, House, Offer, RealEstateAgent, WebPage]
+- term: logo
+  uri: https://schema.org/logo
+  domain: [Organization, House, RealEstateAgent]
+- term: image
+  uri: https://schema.org/image
+  domain: [Organization, House, RealEstateAgent]
+- term: description
+  uri: https://schema.org/description
+  domain: [House]
+- term: sameAs
+  uri: https://schema.org/sameAs
+  domain: [Organization]
+  note: Facebook, X, Instagram, LinkedIn.
+- term: telephone
+  uri: https://schema.org/telephone
+  domain: [Organization, RealEstateAgent]
+- term: foundingDate
+  uri: https://schema.org/foundingDate
+  domain: [Organization]
+  value_observed: '1981'
+- term: numberOfEmployees
+  uri: https://schema.org/numberOfEmployees
+  domain: [Organization]
+  value_observed: '350'
+- term: areaServed
+  uri: https://schema.org/areaServed
+  domain: [Organization]
+  value_observed: London and home counties
+- term: makesOffer
+  uri: https://schema.org/makesOffer
+  domain: [Organization]
+- term: itemOffered
+  uri: https://schema.org/itemOffered
+  domain: [Offer]
+- term: aggregateRating
+  uri: https://schema.org/aggregateRating
+  domain: [Organization]
+- term: ratingValue
+  uri: https://schema.org/ratingValue
+  domain: [AggregateRating]
+- term: reviewCount
+  uri: https://schema.org/reviewCount
+  domain: [AggregateRating]
+- term: address
+  uri: https://schema.org/address
+  domain: [Organization, House, RealEstateAgent]
+- term: streetAddress
+  uri: https://schema.org/streetAddress
+  domain: [PostalAddress]
+- term: addressLocality
+  uri: https://schema.org/addressLocality
+  domain: [PostalAddress]
+- term: addressRegion
+  uri: https://schema.org/addressRegion
+  domain: [PostalAddress]
+- term: postalCode
+  uri: https://schema.org/postalCode
+  domain: [PostalAddress]
+  note: Listings publish the outward-plus-inward code in name but only the outward code in postalCode.
+- term: addressCountry
+  uri: https://schema.org/addressCountry
+  domain: [PostalAddress]
+  value_observed: GB
+- term: geo
+  uri: https://schema.org/geo
+  domain: [House]
+- term: latitude
+  uri: https://schema.org/latitude
+  domain: [GeoCoordinates]
+- term: longitude
+  uri: https://schema.org/longitude
+  domain: [GeoCoordinates]
+- term: offers
+  uri: https://schema.org/offers
+  domain: [House]
+- term: seller
+  uri: https://schema.org/seller
+  domain: [Offer]
+  note: A RealEstateAgent named for the Foxtons branch (e.g. "Bromley").
+- term: businessFunction
+  uri: https://schema.org/businessFunction
+  domain: [Offer]
+  values:
+  - uri: http://purl.org/goodrelations/v1#Sell
+    meaning: Property for sale.
+  - uri: http://purl.org/goodrelations/v1#LeaseOut
+    meaning: Property to rent.
+  note: >-
+    This single property is the only structural difference between a Foxtons sales
+    listing and a lettings listing.
+- term: priceSpecification
+  uri: https://schema.org/priceSpecification
+  domain: [Offer]
+- term: price
+  uri: https://schema.org/price
+  domain: [PriceSpecification, Offer]
+- term: priceCurrency
+  uri: https://schema.org/priceCurrency
+  domain: [PriceSpecification, Offer]
+  value_observed: GBP
+- term: availability
+  uri: https://schema.org/availability
+  domain: [Offer]
+  value_observed: https://schema.org/InStock
+- term: numberOfBedrooms
+  uri: https://schema.org/numberOfBedrooms
+  domain: [House]
+- term: numberOfBathroomsTotal
+  uri: https://schema.org/numberOfBathroomsTotal
+  domain: [House]
+- term: floorSize
+  uri: https://schema.org/floorSize
+  domain: [House]
+- term: value
+  uri: https://schema.org/value
+  domain: [QuantitativeValue]
+- term: unitCode
+  uri: https://schema.org/unitCode
+  domain: [QuantitativeValue]
+  value_observed: MTK
+  note: >-
+    UN/CEFACT MTK is square metres, but the observed values (1144, 2584) are square feet
+    for the properties described. Recorded as published; the unit code appears to be
+    mislabelled in Foxtons' markup.
+- term: breadcrumb
+  uri: https://schema.org/breadcrumb
+  domain: [WebPage]
+- term: itemListElement
+  uri: https://schema.org/itemListElement
+  domain: [BreadcrumbList]
+- term: position
+  uri: https://schema.org/position
+  domain: [ListItem]
+- term: item
+  uri: https://schema.org/item
+  domain: [ListItem]
+local_terms:
+- term: chpk<digits>
+  kind: identifier
+  where: URL path segment on every listing
+  note: >-
+    Foxtons' internal listing reference. Not a RESO UPI, not an OS UPRN, not an HM Land
+    Registry title number — a private key with no published resolution service.
+absent:
+  reso_data_dictionary: >-
+    No RESO Data Dictionary terms are used. RESO has no UK presence and Foxtons carries no
+    certification.
+  uprn: >-
+    No Ordnance Survey UPRN is published, so listings cannot be joined to the UK's
+    canonical address register without geocoding.
+  epc: >-
+    No EPC rating term appears in the structured data. EPC and council-tax information is
+    referenced in the page's rendered copy and disclaimers only, so the UK's two standard
+    property disclosures are not machine-readable from Foxtons' markup.

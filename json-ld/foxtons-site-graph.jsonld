@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Foxtons",
+      "alternateName": "Foxtons Estate Agent",
+      "url": "https://www.foxtons.co.uk"
+    },
+    {
+      "@type": [
+        "RealEstateAgent",
+        "LocalBusiness"
+      ],
+      "name": "Foxtons",
+      "url": "https://www.foxtons.co.uk",
+      "logo": "https://assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+      "image": "https://assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Foxtons Limited, Building 12, Chiswick Park, 566 Chiswick High Road",
+        "addressRegion": "London",
+        "postalCode": "W4 5AN",
+        "addressCountry": "GB"
+      },
+      "telephone": "020 7973 2020"
+    },
+    {
+      "@type": "WebPage",
+      "id": "https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://www.foxtons.co.uk",
+              "@type": "WebPage",
+              "name": "Foxtons"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.foxtons.co.uk/properties-for-sale",
+              "name": "Properties for Sale"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.foxtons.co.uk/properties-for-sale/br1",
+              "name": "BR1 2NF"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "WebPage",
+              "@id": "https://www.foxtons.co.uk/properties-for-sale/br1/chpk3886965",
+              "name": "3 Bedroom House semi detached"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

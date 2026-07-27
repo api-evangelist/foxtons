@@ -1,0 +1,131 @@
+generated: '2026-07-26'
+method: derived
+source: >-
+  live probes of www.foxtons.co.uk and www.foxtonsgroup.co.uk plus the harvested
+  json-ld/ documents, 2026-07-26
+note: >-
+  Foxtons makes no public conformance claim of any kind — there is no developer surface to
+  make one about. Every entry below is either observed in what the site actually serves or
+  recorded as a verified absence. No certification is asserted on Foxtons' behalf, and no
+  Compliance pointer is wired into apis.yml because no compliance programme is published.
+standards:
+- id: schema-org
+  name: schema.org structured data
+  conforms: true
+  evidence: >-
+    Valid application/ld+json on the homepage (Organization) and on every listing page
+    (House/Product + Offer, plus a site @graph with WebSite, RealEstateAgent/LocalBusiness,
+    WebPage and BreadcrumbList). Harvested verbatim to json-ld/.
+- id: json-ld-1.1
+  name: JSON-LD 1.1
+  conforms: true
+  evidence: >-
+    Documents declare "@context": "https://schema.org" and parse as JSON-LD. Foxtons
+    inlines the context rather than serving a context document of its own; the derived
+    context is at json-ld/foxtons-context.jsonld.
+- id: goodrelations
+  name: GoodRelations business vocabulary
+  conforms: true
+  evidence: >-
+    offers.businessFunction uses the GoodRelations IRIs
+    http://purl.org/goodrelations/v1#Sell and #LeaseOut to distinguish sale from let.
+- id: sitemaps-org
+  name: sitemaps.org protocol 0.9
+  conforms: true
+  evidence: >-
+    https://www.foxtons.co.uk/sitemap-index.xml (HTTP 200) is a valid sitemapindex with
+    lastmod, pointing at gzipped per-section sitemaps.
+- id: robots-exclusion
+  name: Robots Exclusion Protocol (RFC 9309)
+  conforms: true
+  evidence: >-
+    https://www.foxtons.co.uk/robots.txt (HTTP 200) with Disallow rules and a Sitemap
+    directive.
+- id: tls-1-3
+  name: TLS 1.3
+  conforms: true
+  evidence: security/foxtons-domain-security.yml — both hosts negotiate TLSv1.3.
+- id: hsts
+  name: HTTP Strict Transport Security (RFC 6797)
+  conforms: true
+  evidence: >-
+    security/foxtons-domain-security.yml — www.foxtons.co.uk max-age 31536000,
+    www.foxtonsgroup.co.uk max-age 15552000.
+- id: dmarc
+  name: DMARC (RFC 7489)
+  conforms: partial
+  evidence: >-
+    foxtons.co.uk publishes DMARC with policy reject; foxtonsgroup.co.uk publishes no
+    DMARC record.
+- id: spf
+  name: SPF (RFC 7208)
+  conforms: true
+  evidence: SPF present on both foxtons.co.uk and foxtonsgroup.co.uk.
+- id: dnssec
+  name: DNSSEC
+  conforms: false
+  evidence: Neither registrable domain is signed.
+- id: caa
+  name: CAA (RFC 8659)
+  conforms: false
+  evidence: No CAA records on either domain.
+- id: rfc9116-security-txt
+  name: security.txt (RFC 9116)
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on both hosts.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document at any probed path on any resolving host; api.,
+    developer. and docs. subdomains do not resolve at all.
+- id: odata
+  name: OData
+  conforms: false
+  evidence: /$metadata returns 404 — no service document, no metadata document.
+- id: reso-web-api
+  name: RESO Web API
+  conforms: false
+  evidence: >-
+    No RESO certification and no RESO endpoint. Expected — RESO certifies MLS
+    organisations and their vendors, and the UK has no MLS.
+- id: reso-data-dictionary
+  name: RESO Data Dictionary
+  conforms: false
+  evidence: >-
+    No Data Dictionary terms appear in the published structured data; Foxtons models
+    listings in schema.org instead.
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented anywhere.
+- id: graphql
+  name: GraphQL
+  conforms: false
+  evidence: /graphql returns 404 on both hosts.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: >-
+    No authorization server metadata, no client registration, no scopes. The only sign-in
+    is the consumer My Foxtons account.
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on both hosts.
+- id: rfc9457-problem-details
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: false
+  evidence: No API, therefore no error contract to shape.
+- id: llms-txt
+  name: llms.txt
+  conforms: false
+  evidence: /llms.txt returns 404 on both hosts; llms/foxtons-llms.txt is our generation.
+uk_property_context:
+  note: >-
+    The interoperability standard that actually moves UK residential listings is the
+    Rightmove V3 BLM feed format, a bilateral commercial arrangement between agency CRM
+    software and the two portals rather than an open standard anyone can conform to or
+    certify against. Foxtons distributes through that route from BOS, its internally built
+    CRM/ERP. Nothing about that arrangement is published, so it is recorded as context,
+    not as a conformance claim.

@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.foxtons.co.uk/properties-to-rent/br1/chpk3901313",
+  "url": "https://www.foxtons.co.uk/properties-to-rent/br1/chpk3901313",
+  "@type": [
+    "House",
+    "Product"
+  ],
+  "name": "House detached to Rent in BR1 2LB",
+  "logo": "https://assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+  "image": "https://web-prod-page-assets.foxtons.co.uk/protog/1779432782/31/31/093/chpk3901313/edited_chpk3901313-2.jpg",
+  "description": "Stylish and spacious, this unusual converted Oast House provides expansive accommodation over 4 floors, with 2 large receptions rooms, eat-in kitchen, 2 Ensuite bedrooms, Gym and Cinema Room.",
+  "numberOfBedrooms": 4,
+  "numberOfBathroomsTotal": 3,
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": 2584,
+    "unitCode": "MTK"
+  },
+  "offers": {
+    "@type": "Offer",
+    "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
+    "seller": {
+      "@type": "RealEstateAgent",
+      "name": "Bromley",
+      "url": "https://www.foxtons.co.uk"
+    },
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": 4250,
+      "priceCurrency": "GBP"
+    },
+    "url": "https://www.foxtons.co.uk/properties-to-rent/br1/chpk3901313",
+    "availability": "https://schema.org/InStock"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "St Georges Road",
+    "addressLocality": "Bromley",
+    "postalCode": "BR1",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.398124,
+    "longitude": 0.048576
+  }
+}

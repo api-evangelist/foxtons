@@ -1,0 +1,127 @@
+generated: '2026-07-26'
+method: derived
+source: json-ld/foxtons-organization.jsonld, json-ld/foxtons-property-for-sale.jsonld, json-ld/foxtons-property-to-rent.jsonld, json-ld/foxtons-site-graph.jsonld
+note: >-
+  Derived from Foxtons' published schema.org JSON-LD, not from an OpenAPI — Foxtons ships
+  no machine-readable contract. This is therefore the shape of the data Foxtons chooses to
+  expose to search engines, which is a strict subset of what BOS (its internal CRM/ERP)
+  holds. Treat it as the public projection of the model, not the model.
+entities:
+- name: Organization
+  schema_type: https://schema.org/Organization
+  identity: https://www.foxtons.co.uk
+  key_fields: [name, legalName, alternateName, url, logo, telephone, address, foundingDate, numberOfEmployees, areaServed, sameAs, aggregateRating, makesOffer]
+  source: json-ld/foxtons-organization.jsonld
+- name: RealEstateAgent
+  schema_type: https://schema.org/RealEstateAgent
+  identity: branch name string (e.g. "Bromley") — no stable branch id or per-branch URL is published
+  key_fields: [name, url, logo, image, address, telephone]
+  source: json-ld/foxtons-site-graph.jsonld, json-ld/foxtons-property-for-sale.jsonld
+- name: Property
+  schema_type: [https://schema.org/House, https://schema.org/Product]
+  identity: chpk<digits> listing reference in the URL path
+  key_fields: [name, description, image, numberOfBedrooms, numberOfBathroomsTotal, floorSize, address, geo, offers]
+  source: json-ld/foxtons-property-for-sale.jsonld
+- name: Offer
+  schema_type: https://schema.org/Offer
+  identity: inline on the property (no separate offer id)
+  key_fields: [businessFunction, seller, priceSpecification, availability, url]
+  source: json-ld/foxtons-property-for-sale.jsonld
+- name: PriceSpecification
+  schema_type: https://schema.org/PriceSpecification
+  key_fields: [price, priceCurrency]
+- name: PostalAddress
+  schema_type: https://schema.org/PostalAddress
+  key_fields: [streetAddress, addressLocality, addressRegion, postalCode, addressCountry]
+- name: GeoCoordinates
+  schema_type: https://schema.org/GeoCoordinates
+  key_fields: [latitude, longitude]
+- name: FloorSize
+  schema_type: https://schema.org/QuantitativeValue
+  key_fields: [value, unitCode]
+- name: Service
+  schema_type: https://schema.org/Service
+  identity: url (valuations) or name (Property Sales, Property Lettings)
+  key_fields: [name, url]
+- name: AggregateRating
+  schema_type: https://schema.org/AggregateRating
+  key_fields: [ratingValue, reviewCount]
+- name: WebPage
+  schema_type: https://schema.org/WebPage
+  key_fields: [id, breadcrumb]
+- name: BreadcrumbList
+  schema_type: https://schema.org/BreadcrumbList
+  key_fields: [itemListElement]
+relationships:
+- from: Organization
+  to: Service
+  type: has_many
+  via: makesOffer.itemOffered
+- from: Organization
+  to: AggregateRating
+  type: has_one
+  via: aggregateRating
+- from: Organization
+  to: PostalAddress
+  type: has_one
+  via: address
+- from: Property
+  to: Offer
+  type: has_one
+  via: offers
+  note: >-
+    One offer per listing. A property is either for sale or to let in the public data;
+    there is no combined representation.
+- from: Property
+  to: PostalAddress
+  type: has_one
+  via: address
+- from: Property
+  to: GeoCoordinates
+  type: has_one
+  via: geo
+- from: Property
+  to: FloorSize
+  type: has_one
+  via: floorSize
+- from: Offer
+  to: RealEstateAgent
+  type: belongs_to
+  via: seller
+  note: Branch attribution is by display name only — not a resolvable reference.
+- from: Offer
+  to: PriceSpecification
+  type: has_one
+  via: priceSpecification
+- from: WebPage
+  to: BreadcrumbList
+  type: has_one
+  via: breadcrumb
+- from: BreadcrumbList
+  to: WebPage
+  type: has_many
+  via: itemListElement.item
+discriminators:
+- field: offers.businessFunction
+  values:
+    'http://purl.org/goodrelations/v1#Sell': sales listing (price is the asking price)
+    'http://purl.org/goodrelations/v1#LeaseOut': lettings listing (price is monthly rent)
+  note: >-
+    The whole sale/let split rides on this one GoodRelations IRI. Sales and lettings share
+    a single published entity shape.
+gaps:
+- >-
+  No listing status beyond schema.org InStock — under offer, sold STC, let agreed and
+  withdrawn are not represented.
+- >-
+  No EPC rating, council tax band, tenure, lease length, service charge or ground rent —
+  the UK disclosures a buyer or renter actually needs before enquiring.
+- >-
+  No branch identifier, so listings cannot be grouped by office without string matching.
+- >-
+  No RESO UPI, OS UPRN or HM Land Registry title number, so a listing cannot be joined to
+  the UK's authoritative property and address registers.
+- >-
+  No availability date, deposit, furnishing or minimum term on lettings.
+- >-
+  No timestamps at all — nothing records when a listing was created, updated or priced.

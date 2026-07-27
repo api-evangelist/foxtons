@@ -1,0 +1,58 @@
+{
+  "url": "https://www.foxtons.co.uk",
+  "logo": "https://page-assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+  "name": "Foxtons",
+  "@type": "Organization",
+  "image": "https://page-assets.foxtons.co.uk/img/logos/foxtons_roundel_logo.png",
+  "sameAs": [
+    "https://www.facebook.com/FoxtonsEstateAgent/",
+    "https://x.com/foxtons",
+    "https://www.instagram.com/foxtonsestateagents/",
+    "https://www.linkedin.com/company/foxtons"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "W4 5AN",
+    "streetAddress": "Building 12, Chiswick Park, 566 Chiswick High Road",
+    "addressCountry": "GB",
+    "addressLocality": "London"
+  },
+  "@context": "https://schema.org",
+  "legalName": "Foxtons Limited",
+  "telephone": "020 7973 2020",
+  "areaServed": "London and home counties",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "price": "0",
+      "itemOffered": {
+        "url": "https://www.foxtons.co.uk/valuations",
+        "name": "Free Property Valuation",
+        "@type": "Service"
+      },
+      "priceCurrency": "GBP"
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "name": "Property Sales",
+        "@type": "Service"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "name": "Property Lettings",
+        "@type": "Service"
+      }
+    }
+  ],
+  "foundingDate": "1981",
+  "alternateName": "Foxtons Estate Agent",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.50",
+    "reviewCount": "8756"
+  },
+  "numberOfEmployees": "350"
+}

@@ -36,6 +36,22 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/foxtons-domain-security.yml
+- type: JSONLD
+  name: Derived JSON-LD context for Foxtons structured data
+  url: json-ld/foxtons-context.jsonld
+- type: Vocabulary
+  name: Foxtons published-data vocabulary
+  url: vocabulary/foxtons-vocabulary.yml
+- type: DataModel
+  url: data-model/foxtons-data-model.yml
+- type: Conformance
+  url: conformance/foxtons-conformance.yml
+- type: Packages
+  url: packages/foxtons-packages.yml
+- type: LLMsTxt
+  url: llms/foxtons-llms.txt
 - type: Website
   url: https://www.foxtons.co.uk/
 - type: Website
@@ -46,8 +62,39 @@ common:
   url: https://www.foxtonsgroup.co.uk/about-us/our-technology
 - type: CustomerPortal
   url: https://www.foxtons.co.uk/myfoxtons
+- type: CustomerLogin
+  url: https://www.foxtons.co.uk/account/login
 - type: Reports
   url: https://www.foxtons.co.uk/reports
+- type: Blog
+  url: https://www.foxtons.co.uk/discover
+- type: HelpCenter
+  url: https://www.foxtons.co.uk/help
+- type: Contact
+  url: https://www.foxtons.co.uk/help/contact
+- type: Pricing
+  name: Lettings fees and terms
+  url: https://www.foxtons.co.uk/let/fees_and_terms
+- type: TermsOfService
+  url: https://www.foxtons.co.uk/help/termsconditions
+- type: PrivacyPolicy
+  url: https://www.foxtonsgroup.co.uk/privacy
+- type: CookiePolicy
+  url: https://www.foxtonsgroup.co.uk/cookie-policy
+- type: ModernSlaveryStatement
+  url: https://www.foxtonsgroup.co.uk/modern-slavery
+- type: InvestorRelations
+  url: https://www.foxtonsgroup.co.uk/investor-relations
+- type: AnnualReport
+  url: https://www.foxtonsgroup.co.uk/sites/foxtons/files/2026-03/foxtons-annual-report-and-accounts-2025.pdf
+- type: BusinessModel
+  url: https://www.foxtonsgroup.co.uk/about-us/our-business-model
+- type: Careers
+  url: https://careers.foxtons.co.uk/
+- type: Sitemap
+  url: https://www.foxtons.co.uk/sitemap-index.xml
+- type: RobotsTxt
+  url: https://www.foxtons.co.uk/robots.txt
 - type: LinkedIn
   url: https://www.linkedin.com/company/foxtons
 - type: Twitter
