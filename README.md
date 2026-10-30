@@ -1,4 +1,4 @@
-# Foxtons (foxtons)
+# Foxtons
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,97 @@
 
 Foxtons Group plc is a London-focused UK estate agency, founded in 1981 and listed on the London Stock Exchange, running residential sales, lettings and property management from roughly 40 branches across London and Surrey, plus independent mortgage broking through its Alexander Hall subsidiary. It sits on the brokerage rung of the value chain — it originates and holds the client and the listing rather than operating a portal or a data exchange — and distributes its stock to Rightmove and Zoopla through the UK's portal feed arrangements rather than through any shared cooperative, because the UK has no MLS. Its technology is deliberately proprietary: an internally built CRM/ERP called BOS underpins the whole business, and the My Foxtons customer portal is the consumer face of that same system. API posture, stated honestly, is none-published — no developer or partner portal, no api./developer./docs. host resolves, no OpenAPI or OData contract is served, and the only machine-readable public surface is schema.org JSON-LD embedded in its web pages. RESO is absent, as expected outside North America. The genuinely open UK property data layer belongs to government (HM Land Registry, Ordnance Survey), not to Foxtons.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/foxtons/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/foxtons/refs/heads/main/apis.yml)
+**Areas:** Real Estate · United Kingdom · Property Listings · Rentals · Lettings · Property Management · Estate Agency · Mortgage · PropTech · London
 
-## Tags
+## Foxtons on APIs.io
 
-- Real Estate
-- United Kingdom
-- Property Listings
-- Rentals
-- Lettings
-- Property Management
-- Estate Agency
-- Mortgage
-- PropTech
-- London
+Everything profiled for Foxtons is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/foxtons/](https://apis.io/providers/foxtons/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-26
-- **Modified:** 2026-07-26
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON-LD (5)
 
-No public APIs are documented by Foxtons. Every conventional developer entry point was probed on 2026-07-26 and none exists — `developer.`, `developers.`, `api.` and `docs.` subdomains of `foxtons.co.uk` all fail DNS resolution, and `/developers`, `/api`, `/docs`, `/api-docs`, `/openapi.json`, `/swagger.json` and `/$metadata` on `www.foxtons.co.uk` all return HTTP 404. No OpenAPI, OData `$metadata`, AsyncAPI, GraphQL, SDK, CLI, Postman collection, webhook catalogue or company GitHub organisation was found.
+Linked-data contexts for the provider's vocabulary.
 
-Search engines surface URLs on `https://api.foxtons.co.uk/` whose titles mirror ordinary marketing pages. **That host does not exist** — NXDOMAIN was confirmed at two independent public resolvers. Those results are search-index artifacts, not an API.
+- [Foxtons Context](https://apis.io/jsonld/foxtons/foxtons-context/)
+- [Foxtons Organization Context](https://apis.io/jsonld/foxtons/foxtons-organization/)
+- [Foxtons Property For Sale Context](https://apis.io/jsonld/foxtons/foxtons-property-for-sale/)
+- [Foxtons Property To Rent Context](https://apis.io/jsonld/foxtons/foxtons-property-to-rent/)
+- [Foxtons Site Graph Context](https://apis.io/jsonld/foxtons/foxtons-site-graph/)
 
-`robots.txt` disallows `/api/` and `/json/`, which tells us the website is backed by internal JSON endpoints. Those roots return 404, are undocumented and uncontracted, and are not a public API.
+#### Vocabulary (1)
 
-See [review.yml](review.yml) for the full probe log, RESO posture, access gate, open-data assessment and auth model.
+The provider's domain terms, defined.
 
-## Sector Posture
+- [Foxtons Vocabulary](https://apis.io/vocabularies/foxtons/foxtons-vocabulary/)
 
-| Fact | Finding |
-| --- | --- |
-| Home market | United Kingdom |
-| Tier | Brokerage |
-| RESO posture | No RESO reference found — RESO has no presence in the UK market, which has no MLS to certify |
-| RESO certified | No |
-| Access gate | `none-published` — nothing to sign, nothing to join, because nothing is offered |
-| Open data | No — Foxtons publishes market reports as PDF only; the open UK property data layer is government-published (HM Land Registry, Ordnance Survey) |
-| Auth model | None published; the only auth surface is the consumer My Foxtons sign-in, and no OpenID Connect discovery document is served |
-| Machine-readable public surface | schema.org JSON-LD `Organization` markup only |
+#### Security (1)
 
-## Common Properties
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Foxtons Domain Security](https://apis.io/security/foxtons/foxtons-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.foxtons.co.uk/)
-- [Website](https://www.foxtonsgroup.co.uk/)
-- [About](https://www.foxtons.co.uk/foxtons/about)
-- [Technology](https://www.foxtonsgroup.co.uk/about-us/our-technology)
-- [Customer Portal](https://www.foxtons.co.uk/myfoxtons)
-- [Reports](https://www.foxtons.co.uk/reports)
-- [LinkedIn](https://www.linkedin.com/company/foxtons)
-- [Twitter](https://x.com/foxtons)
-- [Facebook](https://www.facebook.com/FoxtonsEstateAgent/)
-- [Instagram](https://www.instagram.com/foxtonsestateagents/)
+- [Pricing](https://www.foxtons.co.uk/let/fees_and_terms)
+- [Blog](https://www.foxtons.co.uk/discover)
+- [Terms of service](https://www.foxtons.co.uk/help/termsconditions)
+- [Privacy policy](https://www.foxtonsgroup.co.uk/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-- Kin Lane — kin@apievangelist.com
+**Kin Score 17.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 14.7 |
+| Contract governance | 8.3 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 31.6 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/foxtons/](https://apis.io/providers/foxtons/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Foxtons: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/foxtons/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
